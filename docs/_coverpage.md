@@ -1,4 +1,4 @@
-![logo](.attachments/oogy-logo.png)
+![logo](./.attachments/oogy-logo.png)
 
 # OOGy <small>2.0</small>
 
