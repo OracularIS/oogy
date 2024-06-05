@@ -129,6 +129,8 @@ Click “Finish” to exit the installation Setup & Launch OOGy.
 <b>Step 1:</b> 
 Double click on oogy-setup.exe file to start where the user wants to host Webservice. Run the installer as Administrator account.
 
+![trial-step1](./.attachments/trial-step1.png)
+
  
 
 
@@ -136,10 +138,14 @@ Double click on oogy-setup.exe file to start where the user wants to host Webser
 
 <b>Step 2:</b> 
 Select language from the following dialog box.
+
+![trial-step2](./.attachments/trial-step2.png)
  
 
 <b>Step 3:</b> 
 Click “Next” to continue, or “Cancel” to exit Setup.
+
+![trial-step3](./.attachments/trial-step3.png)
  
 
 
@@ -151,34 +157,54 @@ Click “Next” to continue, or “Cancel” to exit Setup.
 
 <b>Step 4:</b>
 User will need to fill in the details asked during the installation process, here it is “Name & Company”. Then click “Next” to continue.
+
+![trial-step4](./.attachments/trial-step4.png)
  
 <b>Step 5:</b>
 If Java runtime environment is not installed, then a message will be displayed to download Java by clicking on “Click to download”. Once installed the user can proceed with OOGY Paid Mode Installation.
+
+![trial-step5](./.attachments/trial-step5.png)
  
  <b>Step 6:</b> 
 Select Trial mode and click “Next” to continue installation.
+
+![trial-step6](./.attachments/trial-step6.png)
  
 <b>Step 7:</b>
 This step shows Post Installation Instructions, which is to place Moca file in Installation directory as it is required by OOGy.
+
+![trial-step7](./.attachments/trial-step7.png)
  
 
 <b>Step 8:</b>
 This here stats the Product Information, click “Next” to proceed.
+
+![trial-step8](./.attachments/trial-step8.png)
    
 <b>Step 9:</b>
 After reading the “Agreement Terms” User can select “I accept the agreement” and click “Next” to proceed or “I do not accept the agreement” to cancel the installation. 
+
+![trial-step9](./.attachments/trial-step9.png)
  
 <b>Step 10:</b> 
 Select the Location to install the application.
+
+![trial-step10](./.attachments/trial-step10.png)
  
 <b>Step 11:</b>
 This step is to create a shortcut “Desktop Icon” for OOGy. Check the box if desktop icon is needed and click “Next”.
+
+![trial-step11](./.attachments/trial-step11.png)
  
 <b>Step 12:</b>
 Once the setup is ready to begin installation, click “Install” to proceed.
+
+![trial-step12](./.attachments/trial-step12.png)
  
 <b>Step 13:</b>
 Click “Finish” to exit the installation Setup. 
+
+![trial-step13](./.attachments/trial-step13.png)
  
 Click on the Finish Button to complete, now following two files config.yaml and application. Properties are in Program Data as shown Below and copy moca file from program files and paste it in the same folder (ProgramData).
 
@@ -186,6 +212,8 @@ Click on the Finish Button to complete, now following two files config.yaml and 
 
 ### Config.Yaml file
 Config.yaml is a configurable file at following location:
+
+![config](./.attachments/config-yaml.png)
  
 
 Configure Moca environments with the following key value parameters.
@@ -193,33 +221,56 @@ Configure Moca environments with the following key value parameters.
 <b>WH:</b> Warehouse ID 
 <b>Service URL:</b> Moca Server URL
 
+![config-file](./.attachments/config-file.png)
+
+
+
+
 ### Application.properties File
 Edit the application.properties file and set the server. Port variable. This is the SSL PORT.
+
+![properties](./.attachments/properties.png)
  
-Copy Moca file to the installed location. This file is required for OOGy to connect with the Moca instances.
+
 
 ## Run Service
 
 ### Run Service Manually 
 Open the location where OOGy is installed and double click on startup.bat to start OOGy
+
+![run-manually](./.attachments/run-manually.png)
+
+![run-manually2](./.attachments/run-manually2.png)
+
+![run-manually3](./.attachments/run-manually3.png)
  
 
  
 
  
 Run the webservice from Command Prompt as shown below.
+
+![run-manually4](./.attachments/run-manually4.png)
    
 ### Start and Stop Service
 User can start and stop OOGY service from the Windows Services as shown in the following image: Right click on the service name and there it can be stopped if in running state OR can be started if it is stopped.
 
+![start-stop](./.attachments/start-stop.png)
+
 ### Paid Version Manual Installation Service
 
 Right click on install.bat and Run the file as Administrator: 
+
+![paid-install-service](./.attachments/paid-install-service.png)
+
+
   
 
-### Paid Version Auto INstallation
+### Paid Version Auto Installation
 
 In paid version Windows Service is already running
+
+![auto-install](./.attachments/auto-install.png)
   
 User can see service running in windows services as shown above.
 
@@ -227,9 +278,15 @@ User can see service running in windows services as shown above.
 
 The webservice can be tested by launching the following URL in the browser.
 http:<Webservice URL >/greeting
+
+![oogy-test](./.attachments/oogy-test.png)
+
+![postman-test](./.attachments/postman-test.png)
    
    
 Browse <oogy url>/greeting to verify if the service is running or not.
+
+![postman-test2](./.attachments/postman-test2.png)
      
 
 
