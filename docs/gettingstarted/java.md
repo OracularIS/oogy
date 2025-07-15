@@ -9,7 +9,7 @@ To Install Java, please follow the following steps:
 1. Download Java from the following link. https://jdk.java.net/java-se-ri/11
 
     <div style="text-align: left;">
-     <img src="../assets/java1.png"
+     <img src="./assets/java1.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -21,7 +21,7 @@ To Install Java, please follow the following steps:
 2. Extract the contents of the downloaded archive (openjdk-11+28_windows-x64_bin).
 
   <div style="text-align: left;">
-     <img src="../assets/JavaZip.png"
+     <img src="./assets/JavaZip.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -32,7 +32,7 @@ To Install Java, please follow the following steps:
 3. Copy the jdk-11 folder from the extracted files to the path provided below.
 
 <div style="text-align: left;">
-     <img src="../assets/Extracted.png"
+     <img src="./assets/Extracted.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -43,7 +43,7 @@ To Install Java, please follow the following steps:
 4. Place your folder in the specified location.
 
 <div style="text-align: left;">
-     <img src="../assets/java-download-location1.png"
+     <img src="./assets/java-download-location1.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -59,7 +59,7 @@ To Install Java, please follow the following steps:
  1. Go to the Start menu and type "Advanced System Settings" in the search bar.
 
  <div style="text-align: left;">
-     <img src="../assets/Environment Variables.png"
+     <img src="./assets/Environment Variables.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -70,7 +70,7 @@ To Install Java, please follow the following steps:
 2. Click on Environment Variables.
 
  <div style="text-align: left;">
-     <img src="../assets/Environment.png"
+     <img src="./assets/Environment.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -81,7 +81,7 @@ To Install Java, please follow the following steps:
 3. Click New button
 
  <div style="text-align: left;">
-     <img src="../assets/new.png"
+     <img src="./assets/new.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -92,7 +92,7 @@ To Install Java, please follow the following steps:
 4. Add a variable OOGY_JAVA as shown below. Add the relevant path.
 
     <div style="text-align: left;">
-     <img src="../assets/path.png"
+     <img src="./assets/path.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -104,7 +104,7 @@ To Install Java, please follow the following steps:
 5. You’ve successfully added the new environment variable.
 
     <div style="text-align: left;">
-     <img src="../assets/add.png"
+     <img src="./assets/add.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
