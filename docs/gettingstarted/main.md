@@ -8,11 +8,11 @@ OOGy API can be consumed by any client that can handle Rest API calls.
 
 ## Main Components
 
-- [Prerequisties](java.md)
+- [Prerequisties](/gettingstarted/java.md)
     - Java Installation
     - Environment variable
 
-- [OOGY Installation](downloadoogy.md)
-    - [Paid Mode](installationpaidmode.md)
-    - [Trial Mode](installationtrialmode.md)
+- [OOGY Installation](gettingstarted/downloadoogy.md.md)
+    - [Paid Mode](gettingstarted/installationpaidmode.md)
+    - [Trial Mode](gettingstarted/installationtrialmode.md)
 
