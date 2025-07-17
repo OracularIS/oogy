@@ -1,7 +1,7 @@
 # Installation Options
 
 The OOGY app is available in two versions:
-1. [Paid Mode](installationpaidmode.md): Includes the full suite of features.
+1. [Paid Mode](/gettingstarted/installationpaidmode.md): Includes the full suite of features.
 2. Trial Mode: Offers basic functionality with limited features.
 
 ## 2. Trial Mode Installation

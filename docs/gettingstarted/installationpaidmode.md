@@ -204,7 +204,7 @@ After installation Run startup.bat (C:\Program Files\OOGY). This will add OOGY a
 
 
 Follow the guide below to set up Trial Version Of OOGY
-[Trial Mode](installationtrialmode.md)
+[Trial Mode](/gettingstarted/installationtrialmode.md)
 
 
 ---
