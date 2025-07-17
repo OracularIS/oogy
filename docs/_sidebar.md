@@ -6,6 +6,7 @@
     - [OGGY Installation](./gettingstarted/downloadoogy.md)
         - [Paid Mode](./gettingstarted/installationpaidmode.md)
         - [Trial Mode](./gettingstarted/installationtrialmode.md)
+- [Configuration File](./gettingstarted/configuration.md)
 - [Why Use OOGy](./why-oogy.md) 
 - [API Endpoints](API-endpoints.md)
 - [Release updates](release-updates.md)
