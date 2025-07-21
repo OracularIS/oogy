@@ -7,7 +7,7 @@ The following two files **config.yaml** and **application.properties** are in Pr
 Copy moca file from program files and paste it in the same folder (ProgramData).
 
 <div style="text-align: left;">
-     <img src="../assets/Config.png"
+     <img src="./assets/Config.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -26,7 +26,7 @@ Configure Moca environments with the following key value parameters.
 - Service URL: Moca Server URL
 
 <div style="text-align: left;">
-     <img src="../assets/config-file.png"
+     <img src="./assets/config-file.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -39,7 +39,7 @@ Configure Moca environments with the following key value parameters.
 - Edit the application.properties file and set the server. Port variable. This is the SSL PORT.
 
 <div style="text-align: left;">
-     <img src="../assets/app.yaml.png"
+     <img src="./assets/app.yaml.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -50,7 +50,7 @@ Configure Moca environments with the following key value parameters.
 - Copy Moca file to the installed location. This file is required for OOGy to connect with the Moca instances.
 
 <div style="text-align: left;">
-     <img src="../assets/moca-core.png"
+     <img src="./assets/moca-core.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -67,7 +67,7 @@ Below section will explain you how to start and stop services.
 Open the location where OOGY is installed and double click on startup.bat to start OOGY
 
 <div style="text-align: left;">
-     <img src="../assets/start-upbat.png"
+     <img src="./assets/start-upbat.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -78,7 +78,7 @@ Open the location where OOGY is installed and double click on startup.bat to sta
     
 
 <div style="text-align: left;">
-     <img src="../assets/run-manually2.png"
+     <img src="./assets/run-manually2.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -88,7 +88,7 @@ Open the location where OOGY is installed and double click on startup.bat to sta
     <br>
 
 <div style="text-align: left;">
-     <img src="../assets/run-manually3.png"
+     <img src="./assets/run-manually3.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -98,7 +98,7 @@ Open the location where OOGY is installed and double click on startup.bat to sta
     <br>
 
 <div style="text-align: left;">
-     <img src="../assets/run-manually4.png"
+     <img src="./assets/run-manually4.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -112,7 +112,7 @@ Open the location where OOGY is installed and double click on startup.bat to sta
 User can start and stop OOGY service from the Windows Services as shown in the following image: Right click on the service name and there it can be stopped if in running state OR can be started if it is stopped.
 
 <div style="text-align: left;">
-     <img src="../assets/start-stop.png"
+     <img src="./assets/start-stop.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
