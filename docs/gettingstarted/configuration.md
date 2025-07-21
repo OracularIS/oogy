@@ -7,7 +7,7 @@ The following two files **config.yaml** and **application.properties** are in Pr
 Copy moca file from program files and paste it in the same folder (ProgramData).
 
 <div style="text-align: left;">
-     <img src="./assets/Config.png"
+     <img src="../../docs/assets/Config.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
