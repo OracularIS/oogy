@@ -1,329 +1,303 @@
 # API Endpoints
 
-OOGY in Postman 
+OOGY API Integration Using Postman
 
-OOGy service have 7 API’s. 
+The OOGY service comprises seven distinct APIs. Below is a detailed explanation of each API, demonstrated using Postman for clarity and ease of understanding.
 
-Below we explain each with the help of postman. 
+## 1. Login API
 
-Browse OOGY 
+The **Login API** is used to authenticate users by verifying their credentials. Upon successful authentication, it returns a session token (`session_key`) which is required for subsequent API calls.
 
-We can browse (API URL)/greeting to know is that service is running or down. 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/login`
 
- 
+### Headers
 
-## Login 
+| Key           | Value              |
+|---------------|--------------------|
+| Content-Type  | application/json   |
 
-Login api return you token for next step. login api verify your credentials.  
+### Body Configuration
 
-API Type is POST 
+In the **Body** tab:
 
-Api url will be (API URL)/login 
+1. Select **raw**.
+2. Set the format to **JSON (application/json)**.
 
-Header key will be (Content-Type ) and value ( application/json ) 
+### JSON Payload Parameters
 
- 
+Provide the following fields in the request body:
 
-Body tab will open sub type. 
+| Field       | Description                                                           |
+|-------------|-----------------------------------------------------------------------|
+| `serverid`  | The MOCA server ID used to determine the connection URL and credentials. |
+| `username`  | MOCA server connection username.                                       |
+| `password`  | MOCA server connection password.                                       |
 
-In Sub type select raw 
+### Response
 
-And JSON (application/json) 
+Upon a successful request, a JSON response will be returned with the following structure:
 
-Now right json inside body with following 3 credentials. 
+| Field              | Description                                                                  |
+|--------------------|------------------------------------------------------------------------------|
+| `MocaStatusCode`   | Returns `0` if the login is successful.                                      |
+| `ErrorMessage`     | Returns an error message if the login fails.                                 |
+| `StatusDescription`| Service message (e.g., `"User logged in successfully"`), otherwise empty.    |
+| `session_key`      | A session token used in subsequent API requests (e.g., execute, logout).     |
+| `Results`          | Will be `null` in the login response.                                        |
 
-serverid: moca server id to determine connection URL other credentials. 
 
-username : moca server connection username 
 
-password : moca server connection password 
+## 2. Execute API
 
- 
+The **Execute API** is used to run queries or commands and returns the output in JSON format.
 
-when you click on send button following json will return 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/execute`
 
-MocaStatusCode : it will return moca status code 0 if all goes fine. 
+### Headers
 
-ErrorMessage: it will return error message if any 
+| Key           | Value              |
+|---------------|--------------------|
+| Content-Type  | application/json   |
 
-StatusDescription : Message from service . if login goes fine User logged in successfully. Otherwise empty  
+### Body Configuration
 
-payload 
+In the **Body** tab:
 
-session_key : which you use for next step to execute command and logout. 
+- Select **raw**.
+- Set the format to **JSON (application/json)**.
 
-Results : results will be null in login 
+#### JSON Payload Parameters
 
- 
+| Field        | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| `command`    | The command or query to be executed.                                        |
+| `serverid`   | The command or MOCA server ID to determine the connection URL and credentials. |
+| `username`   | *(Optional)* Username for MOCA server authentication.                       |
+| `password`   | *(Optional)* Password for MOCA server authentication.                       |
+| `session_key`| *(Optional)* Session key returned from the Login API.                       |
 
- 
+You may provide either:
 
- 
+- `username` and `password`,  
+- `session_key`,  
+- or all credentials together, depending on the authentication method.
 
- 
+### Response
 
-## Execute 
+When the request is successfully sent, a JSON response will be returned with the following structure:
 
-Execute APi actually run your queries and command and give you output in json form 
+| Field             | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `MocaStatusCode`  | Returns `0` if the execution is successful.                                 |
+| `ErrorMessage`    | Contains error details if the execution fails.                              |
+| `StatusDescription` | Message from the service (e.g., `User logged in successfully`).           |
+| `session_key`     | A session key for use in subsequent API calls such as command execution or logout. |
+| `Results`         | Contains the data returned from the executed query.                         |
 
-Method type Post 
 
-Api url will be (API URL)/execute. 
 
-3)Header tab contain only one key. Header key will be  ( Content-Type ) and value ( application/json ) 
+## 3. Logout API
 
- 
+The **Logout API** is used to terminate an active session. It requires a valid session key that was obtained from the Login API, which authenticates user credentials and returns the token required for subsequent requests.
 
-4) Body tab will open sub type 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/logout`
 
-5) In Sub type select raw 
+### Required Query Parameters
 
-      6) And JSON (application/json) 
+Pass the following parameters in the query string:
 
-Now right json inside body with following 5 credentials 
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| `username`    | MOCA server connection username.                      |
+| `session_key` | Session key returned by the Login API.               |
+| `serverid`    | MOCA server identifier used to determine the connection URL. |
 
-command: Command or query  
 
-serverid: Command or  moca server id to determine connection URL other credentials 
 
-username (Optional): moca server connection username  
+## 4. Hello World API
 
-password (Optional): moca server connection password 
+The **Hello World API** is typically used to verify connectivity and authentication with the MOCA server. It requires valid credentials and returns a basic response indicating successful communication.
 
-session_key (Optional): Session id which returned in login. 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/helloworld`
 
-Send username password or session_key or send all credentials 
+### Headers
 
- 
+| Key           | Value              |
+|---------------|--------------------|
+| Content-Type  | application/json   |
 
-when you click on send button following json will return 
+### Body Configuration
 
- 
+In the **Body** tab:
 
- 
+1. Select **raw**.  
+2. Set the format to **JSON (application/json)**.
 
-MocaStatusCode : it will return moca status code 0 if all goes fine. 
+### JSON Payload Parameters
 
-ErrorMessage: it will return error message if any 
+Provide a JSON object in the request body with the following fields:
 
-StatusDescription : Message from service . if login goes fine User logged in successfully. Otherwise empty  
+| Field         | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| `serverid`     | The MOCA server ID used to determine the connection URL and credentials.   |
+| `username`     | *(Optional)* Username for MOCA server authentication.                      |
+| `password`     | *(Optional)* Password for MOCA server authentication.                      |
+| `session_key`  | *(Optional)* Session key obtained from the Login API.                      |
 
-payload 
+You can authenticate using either:
 
-session_key : which you use for next step to execute command and logout. 
+- `username` and `password`,  
+- `session_key`,  
+- or all credentials together.
 
-Results : results contain all data return from the query 
 
- 
 
- 
+## 5. API Router
 
- 
+The **API Router** is a generic proxy service designed to forward and execute requests to any given URL, including MOCA APIs. It enables secure communication with external systems and serves as a workaround for environments with outdated TLS support.
 
- 
+### Use Cases
 
-## Logout 
+- **TLS Compatibility**: When Java 6 is installed on the RP server (which does not support TLS 1.1 or higher), the API Router can be used as an intermediary. Since it supports TLS 1.0 and above, it can forward requests on behalf of the RP server using the required TLS version.
+- **Centralized Routing**: Consolidate logic by implementing a single method in the RP layer to route all third-party API calls through the API Router, improving maintainability and consistency.
 
-Login api return you token for next step . login api verify your credentials .  
+### Request Details
 
-API Type is Post 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/apirouter`
 
-Api url will be (API URL)/logout 
+### Body Configuration
 
-Send following 3 parameter with query string  as shown 
+In the **Body** tab:
 
-username : moca server connection username 
+1. Select **raw**.
+2. Set the format to **JSON (application/json)**.
 
-session_key: key which was return in login in session_key 
+### JSON Payload Parameters
 
-serverid: moca server connection url 
+| Field              | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| `URL`              | The target URL of the external API to be called.                            |
+| `httpmethod`       | The HTTP method to be used for the request (e.g., GET, POST, PUT).          |
+| `queryparameters[]`| An array of key-value pairs representing query string parameters.           |
+| `headerparameters[]`| An array of key-value pairs for the request headers.                       |
+| `Body`             | The request payload to be sent to the target URL.                           |
 
- 
 
- 
 
- 
+## 6. Post Download API
 
- 
+The **Post Download API** is used to send data to the server and initiate a download process. It requires valid credentials for authentication and returns a structured JSON response.
 
- 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/postdownload`
 
- 
+### Query Parameters
 
-## Hello World 
+Pass the following parameters in the query string:
 
-Login api return you token for next step . login api verify your credentials .  
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| `username`    | *(Optional)* MOCA server connection username.         |
+| `session_key` | *(Optional)* Session key returned from the Login API. |
+| `serverid`    | MOCA server ID to determine connection URL and credentials. |
 
-API Type is Post 
+You may authenticate using:
+- `username` and `password`,
+- `session_key`, or
+- all credentials together.
 
-Api url will be (API URL)/helloworld 
+### Headers
 
-Send following 3 parameter with querystring  as shown 
+| Key           | Value              |
+|---------------|--------------------|
+| Content-Type  | application/json   |
 
-3)Header tab contain only one key. Header key will be  ( Content-Type ) and value ( application/json ) 
+### Body Configuration
 
-4) Body tab will open sub type 
+In the **Body** tab:
 
-5) In Sub type select raw 
+1. Select **raw**.
+2. Set the format to **JSON (application/json)**.
 
-      6) And JSON (application/json) 
+### JSON Payload Parameters
 
-Now right json inside body with following 3 credentials 
+| Field           | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `serverid`       | MOCA server ID used to determine the connection URL.                        |
+| `username`       | *(Optional)* MOCA server connection username.                               |
+| `password`       | *(Optional)* MOCA server connection password.                               |
+| `session_key`    | *(Optional)* Session key from the Login API.                                |
+| `data`           | The data to be submitted.                                                   |
+| `dwnld_info`     | Metadata or configuration related to the download.                          |
+| `run_tran_flg`   | A flag indicating whether the transaction should be executed.               |
 
-serverid: Command or  moca server id to determine connection URL other credentials 
+### Response
 
-username (Optional): moca server connection username  
+Upon successful request, a JSON response will be returned with the following fields:
 
-password (Optional): moca server connection password  
+| Field              | Description                                                                  |
+|--------------------|------------------------------------------------------------------------------|
+| `MocaStatusCode`   | Returns `0` if the operation is successful.                                  |
+| `ErrorMessage`     | Returns an error message if the request fails.                               |
+| `StatusDescription`| Message from the service (e.g., "User logged in successfully").              |
+| `session_key`      | Session key to be used in subsequent requests (e.g., execute or logout).     |
+| `Results`          | Contains the results or data returned from the operation.                    |
 
-session_key (Optional): Session id which returned in login. 
 
-Send username password or session_key or send all credentials 
 
- 
+## 7. Post Download XML API
 
- 
+The **Post Download XML API** is used to send XML-formatted data to the server for processing and initiating a download transaction. It requires valid authentication credentials and returns a structured response.
 
-## API Router 
+- **Method**: `POST`  
+- **Endpoint**: `(API URL)/postdownloadxml`
 
-A generic Proxy to pass through and call any URL including APIs from Moca. 
+### Query Parameters
 
-Use cases: 
+Pass the following parameters in the query string:
 
-Java 6 is installed on RP Server, and it does not support TLS 1.1 and above. The API Router can be called directly from Moca, as it does support TLS 1.0, and it can make the request on behalf of the RP server in the required TLS Mode. 
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| `username`    | *(Optional)* MOCA server connection username.         |
+| `session_key` | *(Optional)* Session key returned from the Login API. |
+| `serverid`    | MOCA server ID to determine the connection URL and credentials. |
 
-Consolidate logic and create a single method in RP that routes all third party calls to external systems via API Router 
+Authentication can be provided using:
+- `username` and `password`,
+- `session_key`, or
+- all credentials together.
 
-Detail 
+### Headers
 
-API Type is Post 
+| Key           | Value              |
+|---------------|--------------------|
+| Content-Type  | application/xml    |
 
-Api url will be (API URL)/apirouter 
+### Body Configuration
 
-Body tab will open sub type 
+In the **Body** tab:
 
-In Sub type select raw 
+1. Select **raw**.
+2. Set the format to **XML (application/xml)**.
 
-And JSON (application/json) 
+### XML Payload Structure
 
-The body must contain the following parameters 
+The body of the request must contain a well-formed XML structure with the following fields:
 
-URL: URL for the API 
+| Field           | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `serverid`       | MOCA server ID used to determine the connection URL and credentials.        |
+| `username`       | *(Optional)* MOCA server connection username.                               |
+| `password`       | *(Optional)* MOCA server connection password.                               |
+| `session_key`    | *(Optional)* Session key obtained from the Login API.                       |
+| `data`           | XML data content to be submitted.                                           |
+| `dwnld_info`     | Information related to the download process.                                |
+| `run_tran_flg`   | Flag indicating whether to execute the transaction.                         |
 
-httpmethod: moca server connection username  
+> **Note**: The full XML payload must be included in the body of the request.
 
-queryparameters[]: Array to hold key/value pair for query string. 
-
-headerparameters[]: Array to hold key/value pair for header request parameters. 
-
-Body: Body content that will be sent to the URL defined above. 
-
-Graphical user interface, text
-
-Description automatically generated 
-
- 
-
- 
-
- 
-
-## Post Download 
-
-Login api return you token for next step . login api verify your credentials .  
-
-API Type is Post 
-
-Api url will be (API URL)/postdownload 
-
-Send following 3 parameter with querystring  as shown 
-
-3)Header tab contain only one key. Header key will be  ( Content-Type ) and value ( application/json ) 
-
-4) Body tab will open sub type 
-
-5) In Sub type select raw 
-
-      6) And JSON (application/json) 
-
-Now right json inside body with following 3 credentials 
-
-serverid: Command or  moca server id to determine connection URL other credentials 
-
-username (Optional): moca server connection username  
-
-password (Optional): moca server connection password 
-
-session_key (Optional): Session id which returned in login. 
-
-Send username password or session_key or send all credentials 
-
-data : data 
-
-dwnld_info : download info 
-
-run_tran_flg : flag of transaction 
-
-when you click on send button following json will return 
-
- 
-
- 
-
-MocaStatusCode : it will return moca status code 0 if all goes fine. 
-
-ErrorMessage: it will return error message if any 
-
-StatusDescription : Message from service . if login goes fine User logged in successfully. Otherwise empty  
-
-payload 
-
-session_key : which you use for next step to execute command and logout. 
-
-Results : results contain all data return from the query 
-
- 
-
- 
-
- 
-
-## POST DOWNLOAD XML 
-
-Login api return you token for next step . login api verify your credentials .  
-
-1)API Type is Post 
-
-2)Api url will be (API URL)/postdownloadxml 
-
-Send following 3 parameter with query string  as shown 
-
-3)Header tab contain only one key. Header key will be  ( Content-Type ) and value ( application/json ) 
-
-4) Body tab will open sub type 
-
-5) In Sub type select raw / XML 
-
-      6) And xml (application/xml) 
-
-7)Now right header with following 8 credentials 
-
-serverid: Command or  moca server id to determine connection URL other credentials 
-
-username (Optional): moca server connection username  
-
-password (Optional): moca server connection password 
-
-session_key (Optional): Session id which returned in login. 
-
-Send username password or session_key or send all credentials 
-
-data : data 
-
-dwnld_info : download info 
-
-run_tran_flg : flag of transaction  
-
- 
-
-XML is in body 
