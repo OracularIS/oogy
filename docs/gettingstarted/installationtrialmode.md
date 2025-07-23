@@ -9,7 +9,7 @@ The OOGY app is available in two versions:
 - Double click on oogy-setup.exe file to start where the user wants to host Webservice. Run the installer as Administrator account.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/01-Run-As-Admin.png"
+     <img src="./assets/installationtrialmode/01-Run-As-Admin.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -20,7 +20,7 @@ The OOGY app is available in two versions:
 - Select language from the following dialog box.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/02-Trial Mode SS-0.png"
+     <img src="./assets/installationtrialmode/02-Trial Mode SS-0.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -31,7 +31,7 @@ The OOGY app is available in two versions:
 - Click “Next” to continue, or “Cancel” to exit Setup.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-01.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-01.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -42,7 +42,7 @@ The OOGY app is available in two versions:
 - User will need to fill in the details asked during the installation process, here it is “Name & Company”. Then click “Next” to continue.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-02.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-02.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -53,7 +53,7 @@ The OOGY app is available in two versions:
 - This step shows Post Installation Instructions, which is to place Moca file in Installation directory as it is required by OOGY.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-04.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-04.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -64,7 +64,7 @@ The OOGY app is available in two versions:
 - This here stats the Product Information, click “Next” to proceed.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-05.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-05.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -75,7 +75,7 @@ The OOGY app is available in two versions:
 - After reading the “Agreement Terms” User can select “I accept the agreement” and click “Next” to proceed or “I do not accept the agreement” to cancel the installation.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-06.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-06.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -86,7 +86,7 @@ The OOGY app is available in two versions:
 - Select the Location to install the application.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-07.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-07.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -97,7 +97,7 @@ The OOGY app is available in two versions:
 - This step is to create a shortcut “Desktop Icon” for OOGy. Check the box if desktop icon is needed and click “Next”.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-08.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-08.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -108,7 +108,7 @@ The OOGY app is available in two versions:
 - Once the setup is ready to begin installation, click “Install” to proceed.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-09.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-09.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
@@ -119,7 +119,7 @@ The OOGY app is available in two versions:
 - Click “Finish” to exit the installation Setup.
 
     <div style="text-align: left;">
-     <img src="../assets/installationtrialmode/Trial Mode SS-10.png"
+     <img src="./assets/installationtrialmode/Trial Mode SS-10.png"
        alt="java 1"
        style="height: 200px; margin: auto; display: block; cursor: zoom-in;
               border: 2px solid #000000; border-radius: 4px;"
