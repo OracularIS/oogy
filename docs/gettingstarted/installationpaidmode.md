@@ -81,6 +81,9 @@ The OOGY app is available in two versions:
        onclick="this.style.height='400px'; this.style.cursor='zoom-out';"
        ondblclick="this.style.height='200px'; this.style.cursor='zoom-in';">
      </div>
+  
+  Use the following steps to obtain your registration key. For that click [here!](./generatingyourappkey.md)
+
 - This step shows Post Installation Instructions, which is to place Moca file in Installation directory as it is required by OOGY.
 
    <div style="text-align: left;">
