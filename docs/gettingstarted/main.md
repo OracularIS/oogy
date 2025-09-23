@@ -14,6 +14,6 @@ OOGy API can be consumed by any client that can handle Rest API calls.
 
 - [OOGY Installation](gettingstarted/downloadoogy.md)
     - [Paid Mode](gettingstarted/installationpaidmode.md)
-    - [Generating Your App Key](generatingyourappkey.md)
+    - [Generating Your App Key](gettingstarted/generatingyourappkey.md)
     - [Trial Mode](gettingstarted/installationtrialmode.md)
 
