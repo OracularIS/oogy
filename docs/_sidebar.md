@@ -10,3 +10,4 @@
 - [Configuration File](./gettingstarted/configuration.md)
 - [Why Use OOGy](./why-oogy.md) 
 - [API Endpoints](API-endpoints.md)
+- [Upgrading an Existing Installation](./upgrading-existing-installation.md)
