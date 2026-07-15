@@ -248,7 +248,243 @@ Upon successful request, a JSON response will be returned with the following fie
 | `session_key`      | Session key to be used in subsequent requests (e.g., execute or logout).     |
 | `Results`          | Contains the results or data returned from the operation.                    |
 
+## Post Download Response Enhancement
 
+### Overview
+
+A new configurable response processing mechanism has been added to the Post Download API.
+
+After the standard `PostDownload` command executes successfully, OOGY can optionally execute a second MOCA command named `PostDownloadResponse`.
+
+This enhancement allows customer-specific or site-specific response formats to be returned without requiring Java code changes.
+
+### Processing Flow
+
+```text
+PostDownload Request
+        |
+        V
+Execute PostDownload
+        |
+        V
+Extract Runtime Variables
+    - dwnld_seq
+    - exec_sts
+    - exec_msg
+        |
+        V
+Execute PostDownloadResponse
+        |
+        V
+Read post_download_response
+        |
+        +-----------------------------+
+        |                             |
+        | OOGY_DEFAULT_RESPONSE_XML   |
+        |                             |
+        V                             V
+ Default Response            Custom Response
+```
+
+### Available Variables
+
+The following variables are available within the `PostDownloadResponse` command.
+
+#### Request Variables
+
+| Variable | Description |
+|----------|-------------|
+| `@data@` | Original request payload |
+| `@sys_id@` | System identifier |
+| `@dwnld_info@` | Download information |
+| `@username@` | Username used for the request |
+
+#### Post Download Execution Variables
+
+| Variable | Description |
+|----------|-------------|
+| `@dwnld_seq@` | Download sequence returned from PostDownload |
+| `@exec_sts@` | Execution status code |
+| `@exec_msg@` | Execution message returned by MOCA |
+
+### Special Response Keyword
+
+The following literal value can be returned by the `PostDownloadResponse` command:
+
+```text
+OOGY_DEFAULT_RESPONSE_XML
+```
+
+When this value is returned, OOGY falls back to the original Post Download response format.
+
+Example:
+
+```sql
+publish data
+where post_download_response = 'OOGY_DEFAULT_RESPONSE_XML'
+```
+
+---
+
+## Config.yaml Changes
+
+Add the following entries under:
+
+```yaml
+CommandTemplates:
+```
+
+### PostDownload
+
+```yaml
+- Name: PostDownload
+  Command: "publish data where data = '@data@' and sys_id = '@sys_id@' and use_run_tran_flg = 'T' and dwnld_info = '@dwnld_info@' and use_usr_id = '@username@' | convert ossi json to xml for integrator where json = @data and uc_keep_property_as_json = 'payload' | publish data where data = '<uc_mhe_invreq_inb_ifd><data>' || @xml || '</data></uc_mhe_invreq_inb_ifd>' | { sl_handle inbound_data where data = @data and native_nam = @sys_id and sys_id = @sys_id and dwnld_info = @dwnld_info and xml_flg = 'T' | if (@dwnld_seq and @use_run_tran_flg and @use_run_tran_flg = 'T') { sl_process dwnld where dwnld_seq = @dwnld_seq and commit_step = -1 and user_id = @use_usr_id } | publish data where dwnld_seq = @dwnld_seq }"
+```
+
+### PostDownloadResponse
+
+```yaml
+- Name: PostDownloadResponse
+  Command: "publish data where dwnld_seq = '@dwnld_seq@' and exec_sts = '@exec_sts@' and exec_msg = '@exec_msg@' | publish data where post_download_response = '&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;' || '&lt;oogyXMLPostResults&gt;&lt;executionResult&gt;' || '&lt;status&gt;' || @exec_sts || '&lt;/status&gt;' || '&lt;message&gt;' || @exec_msg || '&lt;/message&gt;' || '&lt;dwnld_seq&gt;' || @dwnld_seq || '&lt;/dwnld_seq&gt;' || '&lt;/executionResult&gt;&lt;/oogyXMLPostResults&gt;'"
+```
+
+### QuoteString
+
+Used to identify quote characters during variable replacement.
+
+```yaml
+- Name: QuoteString
+  Command: "'"
+```
+
+### QuoteEscapeString
+
+Used to escape quote characters in parameter values before substitution.
+
+```yaml
+- Name: QuoteEscapeString
+  Command: "''"
+```
+
+---
+
+## XML Response Example
+
+The following `PostDownloadResponse` command generates an XML response using values returned from the Post Download execution.
+
+```sql
+publish data
+where dwnld_seq = '@dwnld_seq@'
+and exec_sts = '@exec_sts@'
+and exec_msg = '@exec_msg@'
+|
+publish data
+where post_download_response =
+'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+|| '<oogyXMLPostResults><executionResult>'
+|| '<status>' || @exec_sts || '</status>'
+|| '<message>' || @exec_msg || '</message>'
+|| '<dwnld_seq>' || @dwnld_seq || '</dwnld_seq>'
+|| '</executionResult></oogyXMLPostResults>'
+```
+
+Example Output:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oogyXMLPostResults>
+    <executionResult>
+        <status>0</status>
+        <message></message>
+        <dwnld_seq>277</dwnld_seq>
+    </executionResult>
+</oogyXMLPostResults>
+```
+
+---
+
+## JSON Response Example
+
+The following command returns a custom JSON response.
+
+```sql
+publish data
+where post_download_response =
+'{
+  "header":{
+    "msgCode":"200",
+    "message":"Call succeed!"
+  },
+  "body":{
+    "success":true
+  }
+}'
+```
+
+Example Output:
+
+```json
+{
+  "header": {
+    "msgCode": "200",
+    "message": "Call succeed!"
+  },
+  "body": {
+    "success": true
+  }
+}
+```
+
+---
+
+## Error Response Example
+
+The following illustrates a custom error response that can be produced through the `PostDownloadResponse` command.
+
+```json
+{
+  "header": {
+    "msgCode": "400",
+    "message": "Call failed!"
+  },
+  "body": {
+    "success": false,
+    "error_list": [
+      {
+        "errors": [
+          {
+            "code": "GKP-IPS-E00013",
+            "message": "Invalid receipt code!"
+          }
+        ],
+        "receipt_code": "shd001"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## Backward Compatibility
+
+The Post Download API remains backward compatible.
+
+If:
+
+```yaml
+PostDownloadResponse
+```
+
+is not configured, or if the command returns:
+
+```text
+OOGY_DEFAULT_RESPONSE_XML
+```
+
+OOGY automatically returns the original Post Download response exactly as it behaved prior to this enhancement.
+
+This allows existing integrations to continue functioning without modification while enabling new integrations to define custom XML or JSON responses through configuration.
 
 ## 7. Post Download XML API
 
